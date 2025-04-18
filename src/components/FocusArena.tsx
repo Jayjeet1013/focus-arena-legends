@@ -1,20 +1,14 @@
-
-import { useState } from 'react';
 import { Timer } from './Timer';
 import { AIBuddy } from './AIBuddy';
-import { calculateXP, calculateLevel, type UserStats } from '@/utils/xpSystem';
+import { calculateXP, calculateLevel } from '@/utils/xpSystem';
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Flame, Trophy, Clock } from 'lucide-react';
 import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/components/ui/hover-card';
+import { useLocalStats } from '@/hooks/useLocalStats';
 
 export const FocusArena = () => {
-  const [stats, setStats] = useState<UserStats>({
-    level: 1,
-    xp: 0,
-    focusMinutes: 0,
-    streak: 0,
-  });
+  const [stats, setStats] = useLocalStats();
 
   const handleFocusComplete = () => {
     const earnedXP = calculateXP(25); // 25 minutes session
