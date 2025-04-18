@@ -1,11 +1,13 @@
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
+// Use the API key provided
 const genAI = new GoogleGenerativeAI("AIzaSyCkOXNC6YpgPkLg6xunZ70ZuXRAFttpp3I");
 
 export async function getChatResponse(message: string) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    // Update to use the correct model name
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
     const chat = model.startChat({
       history: [
         {
