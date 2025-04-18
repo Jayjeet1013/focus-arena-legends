@@ -6,8 +6,8 @@ const genAI = new GoogleGenerativeAI("AIzaSyCkOXNC6YpgPkLg6xunZ70ZuXRAFttpp3I");
 
 export async function getChatResponse(message: string) {
   try {
-    // Update to use the correct model name
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
+    // Updated to use gemini-1.5-flash model
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
     const chat = model.startChat({
       history: [
         {
@@ -29,3 +29,4 @@ export async function getChatResponse(message: string) {
     return "Sorry, I'm having trouble connecting right now. Let's keep focusing though! 💪";
   }
 }
+
